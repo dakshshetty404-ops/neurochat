@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroChat - AI Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#16a34a;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" opacity="0.2"/>
+            <path d="M30 50 Q30 35 45 35 Q60 35 60 50 Q60 65 45 65 Q30 65 30 50" fill="none" stroke="url(#logoGradient)" stroke-width="2.5"/>
+            <circle cx="45" cy="50" r="5" fill="url(#logoGradient)"/>
+            <path d="M50 35 L55 30" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60 50 L70 50" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M50 65 L55 72" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h2>NeuroChat</h2>
+          <p>Next-gen AI Assistant</p>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Chat history</h3>
+        <div id="historyList" class="history-list"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Quick prompts</h3>
+        <button class="prompt-btn" data-prompt="Summarize this text.">Summarize</button>
+        <button class="prompt-btn" data-prompt="Help me write a professional email.">Email</button>
+        <button class="prompt-btn" data-prompt="Explain this in simple terms.">Explain</button>
+        <button class="prompt-btn" data-prompt="Create a creative story about...">Creative</button>
+      </div>
+
+      <div class="sidebar-section sidebar-settings">
+        <h3>Settings</h3>
+        <label>OpenRouter API Key</label>
+        <input type="password" id="apiKey" placeholder="Paste API Key" />
+        <label class="audio-toggle">
+          <input type="checkbox" id="audioToggle" checked />
+          Enable audio replies
+        </label>
+        <label class="audio-toggle">
+          <input type="checkbox" id="timestampToggle" checked />
+          Show timestamps
+        </label>
+        <button id="downloadChatBtn" class="secondary-btn">Download chat</button>
+        <button id="clearHistoryBtn" class="secondary-btn">Clear history</button>
+      </div>
+    </aside>
+
+    <main class="chat-panel">
+      <header class="chat-header">
+        <div>
+          <p class="meta-label">🟢 Connected to OpenRouter</p>
+          <h1>NeuroChat Conversation</h1>
+        </div>
+      </header>
+
+      <section id="chatBox" class="chat-box"></section>
+
+      <div class="user-input-panel">
+        <div class="input-wrapper">
+          <textarea id="userInput" placeholder="Ask me anything..." rows="2"></textarea>
+          <span id="charCount" class="char-count">0/500</span>
+        </div>
+        <button id="sendBtn" class="primary-btn">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
